@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="Rails quiz-backend: development" uuid="8f4d643f-162e-41c7-ad95-b8a059b70ced">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/quiz-backend_development</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails quiz-backend: test" uuid="738961ae-63ad-4066-b281-c14709c93233">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/quiz-backend_test</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails quiz-backend: production" uuid="3334d491-811d-4f54-9403-4a27491ef39a">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/quiz-backend_production</jdbc-url>
+    </data-source>
+  </component>
+</project>
