@@ -6,7 +6,7 @@
 
 # Ignore bundler config.
 /.bundle
-
+.idea
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -21,3 +21,9 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/config/database.yml
+/db/schema.rb
+.idea/dataSources/
+test/controllers/api/
+test/fixtures/api/
+test/models/api/
