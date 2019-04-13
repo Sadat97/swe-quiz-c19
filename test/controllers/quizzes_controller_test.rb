@@ -7,7 +7,7 @@ class QuizzesControllerTest < ActionDispatch::IntegrationTest
 
   test "should get index" do
     get quizzes_url, as: :json
-    assert_response :success
+    assert_response :failures
   end
 
   test "should create quiz" do
