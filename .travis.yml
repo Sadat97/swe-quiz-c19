@@ -6,7 +6,7 @@ addons:
 env:
   user=postgres
 before_script:
-  - cp database.travis.yml database.yml
+  -cp config/database.travis.yml config/database.yml
   - bundle exec rake db:create RAILS_ENV=test
   - bundle exec rake db:migrate RAILS_ENV=test
 script:
