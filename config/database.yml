@@ -11,7 +11,7 @@ development:
 test:
   <<: *default
   database: quiz-backend_test
-  user: postgres
+  username: postgres
 
 
 production:
