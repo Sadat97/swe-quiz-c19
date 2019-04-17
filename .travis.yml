@@ -3,9 +3,13 @@ cache:
   - bundler
 addons:
   postgresql: '9.6'
+env:
+  user=postgres
 before_script:
   - bundle exec rake db:create RAILS_ENV=test
   - bundle exec rake db:migrate RAILS_ENV=test
+script:
+  - bundle exec rake test
 deploy:
   provider: heroku
   api_key:
