@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: quiz-backend_development
+
+test:
+  <<: *default
+  database: quiz-backend_test
+  username: postgres
+
+
+production:
+  <<: *default
+  database: quiz-backend_production
+  username: quiz-backend
+  password: <%= ENV['QUIZ-BACKEND_DATABASE_PASSWORD'] %>
