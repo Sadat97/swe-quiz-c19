@@ -1,7 +1,8 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: postgres
+  DATABASE_HOST: postgres
+  username: sadat
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
@@ -11,11 +12,12 @@ development:
 test:
   <<: *default
   database: quiz-backend_test
-  username: postgres
+  username: sadat
 
 
 production:
   <<: *default
-  database: quiz-backend_production
-  username: quiz-backend
-  password: <%= ENV['QUIZ-BACKEND_DATABASE_PASSWORD'] %>
+  DATABASE_PORT: 5432
+  DATABASE_HOST: 127.0.0.1
+  DATABASE_USERNAME: postgres
+  DATABASE_PASSWORD: postgres

@@ -5,14 +5,13 @@ class QuizzesController < ApplicationController
 
   # GET /quizzes
   def index
-    @quizzes = Quiz.all
-
+    @quizzes = Quiz.where(search_params).order(updated_at: :desc)
     render json: @quizzes
   end
 
   # GET /quizzes/1
   def show
-    render json: @quiz
+    render json: @quiz , serialzer: QuizSerializer
   end
 
   # POST /quizzes
@@ -44,7 +43,7 @@ class QuizzesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_quiz
-    @quiz = Quiz.find(params[:id])
+    @quiz = Quiz.includes(questions: [:choices]).find(params[:id])
   end
 
   # Only allow a trusted parameter "white list" through.
@@ -52,5 +51,9 @@ class QuizzesController < ApplicationController
     params.require(:quiz).permit(:title, :skill_type, :pass_score, :duration,
                                  questions_attributes: [:question_title,
                                                        choices_attributes: %i[title correct_choice]])
+  end
+
+  def search_params
+    params.permit(:title,  :pass_score, :duration, :id, skill_type: [])
   end
 end
