@@ -11,7 +11,7 @@ class QuizzesController < ApplicationController
 
   # GET /quizzes/1
   def show
-    render json: @quiz , serialzer: QuizSerializer
+    render json: @quiz, serialzer: QuizSerializer
   end
 
   # POST /quizzes
@@ -19,7 +19,7 @@ class QuizzesController < ApplicationController
     @quiz = Quiz.new(quiz_params)
 
     if @quiz.save
-      render json: @quiz, status: :created, location: @quiz
+      render json: @quiz.includes(questions: [:choices]), status: :created, serialzer: QuizSerializer
     else
       render json: @quiz.errors, status: :unprocessable_entity
     end
@@ -50,10 +50,10 @@ class QuizzesController < ApplicationController
   def quiz_params
     params.require(:quiz).permit(:title, :skill_type, :pass_score, :duration,
                                  questions_attributes: [:question_title,
-                                                       choices_attributes: %i[title correct_choice]])
+                                                        choices_attributes: %i[title correct_choice]])
   end
 
   def search_params
-    params.permit(:title,  :pass_score, :duration, :id, skill_type: [])
+    params.permit(:title, :pass_score, :duration, :id, skill_type: [])
   end
 end

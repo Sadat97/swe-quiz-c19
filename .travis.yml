@@ -4,14 +4,11 @@ cache:
 addons:
   postgresql: '9.6'
 env:
-  user=postgres
-before_script:
-  - cd config/
-  - cp -f database.travis.yml database.yml
+  USER=postgres
 script:
   - bundle exec rake db:create RAILS_ENV=test
   - bundle exec rake db:migrate RAILS_ENV=test
-  - bundle exec rake test
+  - bundle exec rake rspec
 deploy:
   provider: heroku
   api_key:
