@@ -19,7 +19,7 @@ class QuizzesController < ApplicationController
     @quiz = Quiz.new(quiz_params)
 
     if @quiz.save
-      render json: @quiz.includes(questions: [:choices]), status: :created, serialzer: QuizSerializer
+      render json: @quiz, status: :created, serialzer: QuizSerializer
     else
       render json: @quiz.errors, status: :unprocessable_entity
     end
