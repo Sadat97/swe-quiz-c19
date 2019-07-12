@@ -15,16 +15,6 @@ class QuestionsController < ApplicationController
     render json: @question
   end
 
-  # POST /questions
-  def create
-    @question = Question.new(question_params)
-
-    if @question.save
-      render json: @question, status: :created, location: @question
-    else
-      render json: @question.errors, status: :unprocessable_entity
-    end
-  end
 
   # PATCH/PUT /questions/1
   def update
@@ -49,6 +39,6 @@ class QuestionsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def question_params
-    params.require(:question).permit(:question_title, :quiz_id)
+    params.require(:question).permit(:question_title, :quiz_id, choices_attributes: [])
   end
 end

@@ -2,14 +2,19 @@
 
 class Question < ApplicationRecord
   belongs_to :quiz
-  has_many :choices
+  has_many :choices, dependent: :destroy
 
   validates :question_title, :quiz, presence: true
   validate :choices?, :only_one_correct?
-
+  before_update :delete_old_choices
   accepts_nested_attributes_for :choices, allow_destroy: true
 
   private
+
+  def delete_old_choices
+    choices = []
+    true
+  end
 
   def only_one_correct?
     if choices.map(&:correct_choice).count(true) == 1
