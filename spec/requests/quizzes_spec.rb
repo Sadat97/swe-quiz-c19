@@ -17,7 +17,7 @@ RSpec.describe 'quizzes', type: :request do
 
   path '/quizzes/{id}' do
     # You'll want to customize the parameter types...
-    parameter 'id', in: :path, type: :string
+    # parameter 'id', in: :path
     # ...and values used to make the requests.
     let(:id) { '123' }
 
