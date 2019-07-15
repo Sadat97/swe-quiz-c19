@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+#Always add a verison to any new gem
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
